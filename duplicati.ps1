@@ -166,14 +166,12 @@ for($i=1; $i -lt $backup_info.Count; $i++){
         $bkupSuccess = $backup_info[$i].success
         write-host "`t`t<channel>$bkupID - $bkupName - Success</channel>"
         write-host "`t`t<unit></unit>"
-        if($bkupSuccess -eq "True"){$bkupSuccess = 1}elseif($bkupSuccess -eq "False"){$bkupSuccess = 0}else{$bkupSuccess = -1}
+        if($bkupSuccess -eq "True"){$bkupSuccess = 0}elseif($bkupSuccess -eq "False"){$bkupSuccess = 1}else{$bkupSuccess = 2}
         write-host "`t`t<value>$bkupSuccess</value>"
         write-host "`t`t<showChart>1</showChart>"
         write-host "`t`t<showTable>1</showTable>"
-        Write-host "`t`t<LimitMinError>0</LimitMinError>"
-        write-host "`t`t<LimitMode>1</LimitMode>"
+        Write-host "`t`t<ValueLookup>oid.backup.status</ValueLookup>"
     write-host "`t</result>"
-
 
 
     ### Diff since last run 
